@@ -1,6 +1,7 @@
 window.PDFGenerator = {
 
     init() {
+
         const btn =
             document.getElementById(
                 "createBtn"
@@ -9,7 +10,7 @@ window.PDFGenerator = {
         if(btn){
             btn.addEventListener(
                 "click",
-                this.generate
+                () => this.generate()
             );
         }
 
@@ -20,8 +21,23 @@ window.PDFGenerator = {
 
     generate() {
 
+        const fileInput =
+            document.getElementById(
+                "imageInput"
+            );
+
+        if(!fileInput.files.length){
+
+            alert(
+                "Please select an image first."
+            );
+
+            return;
+        }
+
         alert(
-            "PDF generation module will run here."
+            fileInput.files.length +
+            " image(s) selected."
         );
 
     }
