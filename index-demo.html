@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>Image to PDF Converter Pro</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="img2pdf">
+    <h1>🖼️ Image to PDF Converter Pro</h1>
+
+    <div class="upload-box">
+        <input
+            type="file"
+            id="imageInput"
+            accept="image/*"
+            multiple>
+    </div>
+
+    <div id="previewGrid"></div>
+
+    <button id="createBtn">
+        Create PDF
+    </button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+
+<script src="js/storage.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/dragdrop.js"></script>
+<script src="js/pdf-generator.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
