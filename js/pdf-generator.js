@@ -68,12 +68,23 @@ window.PDFGenerator = {
                     item.src
                 );
 
-                const canvas =
-                this.prepareCanvas(
-                    image,
-                    item.rotation || 0,
-                    compression
-                );
+                const optimized =
+await ImageCompressor.compress(
+    item.src,
+    compression
+);
+
+const image =
+await this.loadImage(
+    optimized
+);
+
+const canvas =
+this.prepareCanvas(
+    image,
+    item.rotation || 0,
+    compression
+);
 
                 const imgWidth =
                 canvas.width;
