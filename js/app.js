@@ -106,12 +106,22 @@ function bindControls(){
         PDFGenerator.generate
     );
 
-    document
-    .getElementById("clearBtn")
-    .addEventListener(
-        "click",
-        clearAllImages
+    function clearAllImages(){
+
+    APP.images = [];
+
+    Storage.clearImages();
+
+    UI.renderImages();
+
+    UI.updateStats();
+
+    UI.toast(
+        "All images removed",
+        "warning"
     );
+
+}
 
     document
     .getElementById("downloadZipBtn")
@@ -120,12 +130,7 @@ function bindControls(){
         downloadZipPlaceholder
     );
 
-    document
-    .getElementById("darkModeBtn")
-    .addEventListener(
-        "click",
-        toggleDarkMode
-    );
+   
 
     document
     .getElementById("applyCropBtn")
