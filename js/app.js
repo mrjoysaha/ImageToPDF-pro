@@ -78,6 +78,20 @@ function initApp(){
 
 function bindControls(){
 
+   document
+.getElementById(
+    "compressAllBtn"
+)
+.addEventListener(
+    "click",
+    ()=>{
+
+        ImageCompressor
+        .compressAll();
+
+    }
+);
+
     document
     .getElementById("imageInput")
     .addEventListener(
