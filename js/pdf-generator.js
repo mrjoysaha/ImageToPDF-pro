@@ -162,11 +162,31 @@ this.prepareCanvas(
 
                 /* Watermark */
 
-                this.addWatermark(
-                    pdf,
-                    pageWidth,
-                    pageHeight
-                );
+                addWatermark(
+    pdf,
+    pageWidth,
+    pageHeight
+){
+
+    const text =
+    APP.settings.watermark;
+
+    if(!text) return;
+
+    pdf.setTextColor(220);
+    pdf.setFontSize(30);
+
+    pdf.text(
+        text,
+        pageWidth / 2,
+        pageHeight / 2,
+        {
+            align:"center",
+            angle:45
+        }
+    );
+
+}
 
                 /* Page Number */
 
