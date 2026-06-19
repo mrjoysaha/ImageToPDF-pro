@@ -14,14 +14,55 @@ window.UI = {
 
         this.imageInput.addEventListener(
             "change",
-            event => {
-                console.log(
-                    event.target.files
-                );
-            }
+            e => this.renderFiles(
+                e.target.files
+            )
         );
 
-        console.log("UI Initialized.");
+        console.log("UI Ready");
+    },
+
+    renderFiles(files){
+
+        this.previewGrid.innerHTML="";
+
+        [...files].forEach(
+            (file,index)=>{
+
+            const reader=
+                new FileReader();
+
+            reader.onload=e=>{
+
+                const card=
+                    document.createElement(
+                        "div"
+                    );
+
+                card.className=
+                    "preview-card";
+
+                card.innerHTML=`
+                    <img src="${e.target.result}">
+                    <div class="preview-name">
+                        ${file.name}
+                    </div>
+                    <button
+                        class="remove-btn"
+                        data-index="${index}">
+                        Remove
+                    </button>
+                `;
+
+                this.previewGrid
+                    .appendChild(card);
+
+            };
+
+            reader.readAsDataURL(file);
+
+        });
+
     }
 
 };
