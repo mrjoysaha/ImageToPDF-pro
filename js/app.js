@@ -610,10 +610,7 @@ function closePreviewModal(){
 
 function downloadZipPlaceholder(){
 
-    UI.toast(
-        "ZIP module coming in next file",
-        "warning"
-    );
+    ZipDownload.download();
 
 }
 
